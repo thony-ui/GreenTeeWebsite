@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {Navbar, Header, Home, Contact, Quote} from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Navbar />
+    <Header />
+    <Quote />
+    <Home />
+    <Contact />
+  
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('greenTee')
 );
 
 // If you want to start measuring performance in your app, pass a function
