@@ -1,6 +1,9 @@
-.wrapper {
+
+html, body {
   overflow-x: hidden;
-  position: relative;
+}
+body {
+  position: relative
 }
 
 :root {
