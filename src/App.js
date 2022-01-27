@@ -3,6 +3,9 @@ import './App.css';
 import {navLinks, navToggle} from './random'
 import logo from './logo.JPG'
 import green from './green.png'
+import emailjs from '@emailjs/browser'
+import { useState, useRef, } from "react";
+
 
 
 <div className='links'>
@@ -92,13 +95,11 @@ class Contact extends React.Component {
   render() {
     return (
       <div className = 'contactSection' id = 'contact'>
-        <h2>Contact Us At</h2>
-      <div className= 'contactUs'>
-        <div className='person1'>
-          <p>Name: EcoGreenTee</p>
-          <p>Email: ecogreentee@gmail.com</p>
-        </div>
-      </div>
+        <h2>Contact Us</h2>
+    
+          <Contacts />
+        
+      
       </div>
     )
   }
@@ -130,6 +131,46 @@ class Quote extends React.Component {
       </div>
     )
   }
+}
+
+function Contacts() {
+
+  const [result, showResult] = useState(false)
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+
+
+    emailjs.sendForm('service_763e9gr', 'template_kr3ns7s', form.current, 'user_uDS1YuNxGp2L1bkKMZKoz')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+
+      form.current.reset()
+      showResult(true)
+  };
+
+
+
+
+  return (
+    <div>
+      <form className = 'form' ref={form} onSubmit = {sendEmail} >
+   
+      <input type='text' name='name' placeholder = 'Name'required />
+      
+     
+      <input type = 'text' name='message' placeholder = 'Message'required />
+      <button type="submit" className="names">Send</button>
+      {result ? (<h3>Messge sent successfully!</h3>):(<></>)}
+      </form>
+    </div>
+  )
 }
 
 export {Navbar, Header, Home, Contact, Quote}

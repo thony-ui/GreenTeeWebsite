@@ -293,6 +293,12 @@ body {
   font-family: var(--lobster-cursive);
 }
 
+.contactSection {
+  background-color:var(--bg-lightGrey);
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .person1:hover,
 .person2:hover,
 .person3:hover{
@@ -335,4 +341,24 @@ body {
 .quote:hover {
   background-color: var(--bg-white);
   color:var(--bg-pink)
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: var(--bg-lightGrey);
+  color: var(--bg-black);
+}
+
+.form > input {
+  border-radius: 5px;
+  height: 30px;
+  width: 200px;
+}
+
+.form > button {
+  margin-bottom: 1rem;
 }
